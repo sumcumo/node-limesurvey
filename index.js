@@ -98,6 +98,16 @@ class client {
         return this.callApi('list_questions', params)
     }
 
+    getQuestionProperties(questionId, $questionSettings) {
+
+        let params = [questionId]
+
+        if ($questionSettings) {
+            params.push($questionSettings)
+        }
+        return this.callApi('get_question_properties', params)
+    }
+
     async getResponsesBySurveyId(surveyId) {
         var json = await this.callApi('export_responses', [surveyId, 'json', null, 'all', 'code', 'long'])
 
@@ -215,7 +225,7 @@ class client {
                 }
             }
             prettyResponses.push(prettyResponseByGroup)
-            
+
             }
             else{
                 prettyResponses.push(prettyResponse)
