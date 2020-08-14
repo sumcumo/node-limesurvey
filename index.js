@@ -139,6 +139,10 @@ class client {
         return this.callApi('add_participants', [surveyId, participants])
     }
 
+    addResponse(surveyId, responseData) {
+        return this.callApi('add_response', [surveyId, responseData])
+    }
+
     async getPrettyResponses(surveyId, tokenId, aggregateByGroup = false) {
 
         let groups = await this.getGroups(surveyId)
